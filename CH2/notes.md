@@ -142,3 +142,135 @@ Once a value has been assigned to a variable, the variable can be used to assign
 y = 2*x;
 zz = xx+yy;
 ```
+
+### Printing the value of a variable
+
+When using `printf()` to display text, we can use the following notation to display the value of variables:
+
+```C
+// when printing int variables
+int h = 10;
+printf("Height = %d\n", h);
+
+// when printing floats
+float d = 5810.534f;
+printf("Distance = %f\n", d);
+
+// configuring printf() to shou a specific number of decimals
+// 2 decimals
+printf("Distance = %.2f\n", d);
+// n decimals
+printf("Distance = %.nf\n", d);
+
+// displaying multiple variables
+printf("Height = %d\n Distance = %.2f\n", h, d);
+```
+
+### _Program_ Computing the dimensional wheight of a box
+
+```C
+#include <stdio.h>
+
+int main(void){
+    int height = 8;
+    int length = 12;
+    int width = 10;
+    int volume = height * length * width;
+    int weight = (colume + 165) / 166;
+
+    printf("Dimensions (inches): %dx%dx%d\n", length, width, height);
+    printd("Volume (cubic inches): %d\n", volume);
+    printf("Dimensional Weight (pounds): %d\n", weight);
+
+    return 0;
+}
+```
+
+### Initialization
+
+some variables are automatically set to zero when a program begins to execute, but most are not. A variable that does't have a default is **uninitalized**.
+
+initialization of a variable can be achieved individually or in groups:
+
+```C
+int height = 8;
+
+int length = 12, width = 10;
+```
+
+Each variable requires it's own initializer
+
+## Reading Input
+
+To obtain input we use the scanf function (the counterpart to printf) to scan formatted (the `f` in `scanf` and `printf`) data.
+
+```C
+// scanning an int
+scanf("%d", &i);
+// scanning a float
+scanf("%f", &x);
+```
+
+### _Program_ Dimensional volume revisited
+
+```C
+#include <stdio.h>
+
+int main(void){
+
+    int height,length,width;
+
+    printf("Enter height of box: ");
+    scanf("%d", &height);
+    printf("Enter length of box: ");
+    scanf("%d", &length);
+    printf("Enter width of box: ");
+    scanf("%d", &width);
+    int volume = height * length * width;
+    int weight = (colume + 165) / 166;
+
+    printf("Dimensions (inches): %dx%dx%d\n", length, width, height);
+    printd("Volume (cubic inches): %d\n", volume);
+    printf("Dimensional Weight (pounds): %d\n", weight);
+
+    return 0;
+}
+```
+
+this program will fail if non-numeric input is entered.
+
+## defining names for constants
+
+Constants can be set using macros in the preprocessing step. When a program is compiled, the ocurrences of the constant set during the preprocessing step will be replaced in the code with its value.
+
+```C
+#define RECIPROCAL_OF_PI (1.0f / 3.141596f)
+
+int main(void){
+    float radius = 10.1f;
+    float area = PI * radius * radius;
+    float perimeter = 2.0f * PI * radius;
+    return 1;
+}
+```
+
+when defining constants with procedures, these should be encased in parentheses
+
+```C
+#define RECIPROCAL_OF_PI (1.0f / 3.141596f)
+
+int main(void){
+    float perimeter = 111.1f;
+    float radius = perimeter / (2.0f * PI)
+    return 1;
+}
+```
+
+The use of uppercase text is a convention and not a requirement.
+
+## Identifiers
+
+The names used to define variables, functions, macros and other entities are called identifiers. These identifiers can contain letters, digits and underscores. **Identifiers must begin by a letter or undescore**.
+
+Identifiers are **Case Sensitive**.
+
