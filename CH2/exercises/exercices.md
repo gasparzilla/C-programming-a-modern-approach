@@ -74,3 +74,16 @@ int main(void){
     return 0;
 }
 ```
+
+when running the program multiple times, the following pattern was observed:
+
+```
+integers: large_int, 1, large_int, large_int
+floats: -0.00, 0.00, large_float, 0.00
+```
+
+## E5
+
+b, c, and d are legal C identifiers
+
+## E6
