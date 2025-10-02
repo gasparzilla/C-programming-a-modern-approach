@@ -272,5 +272,29 @@ The use of uppercase text is a convention and not a requirement.
 
 The names used to define variables, functions, macros and other entities are called identifiers. These identifiers can contain letters, digits and underscores. **Identifiers must begin by a letter or undescore**.
 
-Identifiers are **Case Sensitive**.
+Identifiers are **Case Sensitive** and have no limit of length.
+
+### Keywords
+
+Keywords have special significances and can't be used as identifiers.
+
+## Layout of a C porogram
+
+A `C` program is a series of tokens (groups of characters that can't be split without altering their meaning) like: identifiers, keywords, operators, punctuation and string literals.
+
+```C
+printf("Height: %d\n", height');
+```
+
+is composed of seven tokens:
+
+```C
+printf
+(
+"Height: %d\n"
+,
+height
+)
+;
+```
 
