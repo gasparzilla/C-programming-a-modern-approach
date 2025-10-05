@@ -87,3 +87,5 @@ floats: -0.00, 0.00, large_float, 0.00
 b, c, and d are legal C identifiers
 
 ## E6
+
+it would be easy to typo and have two variables with a simmilar and nearly indistinguishable name
