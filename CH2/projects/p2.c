@@ -1,21 +1,15 @@
 #include <stdio.h>
+#define PI 3.1415926f
+// using an int fraction
+// #define SPHERE_RATIO=(4/3)
+#define SPHERE_RATIO (4.0f/3.0f)
 
 int main(void){
-    float loan, rate, payment, balance;
+    float radius, volume;
 
-    printf("Enter amount of loan: ");
-    scanf("%f", &loan);
-    printf("Enter interest rate: ");
-    scanf("%f", &rate);
-    printf("monthly payment: ");
-    scanf("%f", &payment);
+    printf("Enter the radius of a sphere: ");
+    scanf("%f", &radius);
 
-    balance = (loan-payment)+(loan*rate/1200.0f);
-    printf("Balance remaining after first payment: %.2f\n", balance);
-    balance = (balance-payment)+(balance*rate/1200.0f);
-    printf("Balance remaining after second payment: %.2f\n", balance);
-    balance = (balance-payment)+(balance*rate/1200.0f);
-    printf("Balance remaining after third payment: %.2f\n", balance);
-    
-    return 1;
+    volume = SPHERE_RATIO*PI*radius*radius;
+    printf("Volume of the sphere: %.2f\n", volume);
 }
