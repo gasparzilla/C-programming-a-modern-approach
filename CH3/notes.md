@@ -125,5 +125,6 @@ int main(void){
     result_denom = denom2*denom1;
 
     printf("The sum is %d/%d\n", result_num, result_denom);
+    return 0;
 ```
 
