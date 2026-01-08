@@ -95,9 +95,35 @@ In this example, `scanf` will read the line, converting the inputed characters t
 
 ### how does `scanf` work:
 
-`scanf` is a pattern matching function that tries to match up groups of input characters with conversion specifications. It processes the information in the input string, strarting at the left, locating an item of the appropiate type in it, skipping blank spaces like spaces or tabs as necessary. `scanf` reads the item, stopping if it cant possibly be asigned to the data type.
+`scanf` is a pattern matching function that tries to match up groups of input characters with conversion specifications. It processes the information in the input string, strarting at the left, locating an item of the appropiate type in it, skipping blank spaces like spaces, tabs or newlines as necessary. `scanf` reads the item, stopping if it cant possibly be asigned to the data type.
 
 If `scanf` fails or is unable to parse correct input data it stops immediately without looking at the rest of the string.
 
+The rules it follows to recognize an integer or floating point are as follows:
 
+- **int:** it should start with a digit, or a `+` or `-` sign, followed by digits until a non-difit number appears
+- **float:** it should start wit a digit or a `+` or `-` sign, followed by a series of digits that can contain a decimal point `.` followed by an optional exponent consisting of the letter `e` or `E` an optional sign and one or more digits.
+
+The `%e`, `%f` and `%g` conversions are intercheangable when used with scanf, following the same rules.
+
+When `scanf` finds a character that can't be part of the current item, the character is put back to be read again during scanning of the next item
+
+### Program> adding fractions
+
+```C
+#include <stdio.h>
+int main(void){
+    int num1, denom1, num2, denom2, result_num, result_denom;
+
+    printf("Enter first fraction: ");
+    scanf("%d/%d", &num1, &denom1);
+
+    printf("Enter second fraction: ");
+    scanf("%d/%d", &num2, &denom2);
+
+    result_num = num1*denom2+num2*denom1;
+    result_denom = denom2*denom1;
+
+    printf("The sum is %d/%d\n", result_num, result_denom);
+```
 
