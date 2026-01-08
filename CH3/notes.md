@@ -56,6 +56,48 @@ int main(void){
 	int i = 40;
 	float x = 839.21f;
 
-	printf("")
+	printf("|%d|%5d|%-5d|%5.3d|\n", i, i, i, i, i)
+    # |40|   40|40   |  040|
+    printf("|%10.3f|%10.3e|%-10g|\n, x, x, x, x")
+    # |    839.210| 8.392e+02|839.21     |
 }
+
+**what do the conversion specifications do**:
+
+- %d: displays the integer using minimum amonunt of space.
+- %5d: displays the integer padding with spaces to the left until at least 5 characters are shown.
+- %-5d: displays the integer padding with spaces to the right until at least 5 characters are shown.
+- %5.3d: displays the integer padding with zeros until 3 numeric characters are shown and with spaces until 5 character appear in total.
+- %10.3f: displays the float in fixed decimal form, using 10 characters in total (padding t the left with spaces) and showing three decimals. (the dot counts as a char).
+- %10.3e: prints the float in exponential form with 3 digits after the decimal point and padding to the right with spaces until 10 chars.
+- %-10g: prints the float in decimal or exponential form, using 10 characters and padding with spaces to the left.
+
+## Escape Sequences
+
+An escape sequence enable strings to contain characters that otherwise cause problems in the compiler, such as backspaces, new lines, quotes, tabs, etc...
+
+The compiler interprets them as actions to perform upon printing, like a beep (\a), moving the cursor backwards (\b) and to the next line (\n).
+
+A string can contain any number of escapesequences.
+
+## the `scanf` function
+ 
+`scanf` is a function used to read input according to a particular format. Conversions are essentially the same as in scanf.
+
+```C
+int i,j;
+float x,y;
+
+scanf("%d%d%f%f, &i, &j, &x, &y")
 ```
+
+In this example, `scanf` will read the line, converting the inputed characters to the number they represent and assign the values to the variables provided. `scanf` is mostly avoided, replaced by reading data in character form and converting to number later.
+
+### how does `scanf` work:
+
+`scanf` is a pattern matching function that tries to match up groups of input characters with conversion specifications. It processes the information in the input string, strarting at the left, locating an item of the appropiate type in it, skipping blank spaces like spaces or tabs as necessary. `scanf` reads the item, stopping if it cant possibly be asigned to the data type.
+
+If `scanf` fails or is unable to parse correct input data it stops immediately without looking at the rest of the string.
+
+
+
