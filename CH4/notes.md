@@ -78,5 +78,28 @@ int main(void){
 }
 ```
 
+## Assignment Operators
+
+once the value of an expression has been computed, it will most likely be stored for later use. `=` the simple assignment operator is used for this, buy C provides several compound assignment operators.
+
+### Simple assignment
+
+`v = e` evaluates the expression `e` and copies the value into `v`.
+
+### Compound assignment
+
+`v += e` evaluates the expression `e` and adds it to `v`
+`v -= e` evaluates the expression `e` and substracts it from `v`
+`v *= e` evaluates the expression `e` and multiplies it by `v`
+`v /= e` evaluates the expression `e` and divides `v` by `e`
+`v %= e` evaluates the expression `e` and computes the reminder when `v` is divided by `e`
+
+all of these compound operations are stored in the original variable `v`
+
+### increment and decrement operators
+
+`i++` is equivalent to `i += 1`
+`i--` is equivalent to `i -= 1`
+
 
 
