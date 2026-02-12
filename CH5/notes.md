@@ -173,7 +173,7 @@ Or, you can define a type Bool easily with mactos, to clarify the use of the var
 
 99 introduced the `_Bool`, a binary integer type that can only be 0 or 1. This type can also be used by including the header `<stdbool.h>` that provides the macro `bool` maping to `?Bool`, `true` that maps to 1 and `false` that maps to 0.
 
-### The `switch` statement
+## The `switch` statement
 
 A cascading if can be used to compare an expression against a series of values, or multiple expressions against multiple conditions. `switch` is an alternative to a cascading `if`.
 
@@ -209,3 +209,50 @@ switch (grade) {
         break;
 }
 ```
+
+### the role of the `break` statement
+
+To tell the program to skip all following cases.
+
+### Program: printing a date in legal form
+
+```C
+#include <stdio.h>
+
+int main (void){
+    int month, day, year;
+
+    printf("Enter date (yyyy/mm/dd):");
+    scanf("%4d /%2d /%2d", &year, &month, &day);
+
+    printf("Dated this %d", day);
+    switch(day){
+        case 1: case 21: case 31:
+            printf("st");
+            break;
+        case 2: case 22:
+            printf("nd");
+            break;
+        case 3: case 33:
+            printf("rd");
+            break;
+        default:
+            printf("th");
+            break;
+    }
+    printf(" day of ");
+    switch (month) {
+        case 1:
+            printf("january");
+            break;
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+        case 8:
+        case 9:
+        case 10:  
+        case 11:
+        case 12:
