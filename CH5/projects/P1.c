@@ -14,4 +14,6 @@ int main(void){
     }
 
     printf("The number %d has %d digits\n", number, digits);
+
+    return 0;
 }
