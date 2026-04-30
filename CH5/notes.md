@@ -1,4 +1,4 @@
-# Selection statemente
+# Select statemente
 
 C hast many operators but few statements. There are three categories of statements:
 
