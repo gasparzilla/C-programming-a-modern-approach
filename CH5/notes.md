@@ -87,7 +87,7 @@ int main (void){
     float commission, value;
 
     printf("Enter value of stock trade: \n");
-    scanf("%f", value);
+    scanf("%f", &value);
 
     if (value < 2500.00f)
         commission = 30.00f + .017f * value;
