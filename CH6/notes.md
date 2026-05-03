@@ -164,4 +164,28 @@ Watch out for off by one errors.
 
 ## The `break` statement
 
-This statement transfers control out of a loop, jumping out out of a `while`, `do` or `for; this is useful when needing to check for more conditions not covered by the control expression.
+This statement transfers control out of a loop, jumping out out of a `while`, `do` or `for`; this is useful when needing to check for more conditions not covered by the control expression.
+
+A `break` statement transfers control out of the _innermost_ enclosing loop -> when these loops are nested, the statement can escape only one level, consider:
+
+```C
+while(...){
+    switch(...){
+        ...
+        break
+        ...
+    }
+}
+```
+
+That break transfers control out of the `switch` statement into the outermost `while`.
+
+## The `continue` statement
+
+This statement does not really exit from a loop, it jumps to just before the beggining instruction of the iteration. I don't really see a specific usecase and the book says it's not really usefull?? ok
+
+## The `goto` statement
+
+I will read the section, but i'm not interested in learning hot wo use it.
+
+
