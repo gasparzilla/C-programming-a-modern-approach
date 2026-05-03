@@ -23,7 +23,7 @@ int main (void){
         if (commission < 39.00f)
             commission = 39.00f;
         
-        printf("Commission: $%.2f\n", commission);
+        printf("Commission: $%.2f\n\n", commission);
 
         printf("Enter value of stock trade: ");
         scanf("%f", &value);
