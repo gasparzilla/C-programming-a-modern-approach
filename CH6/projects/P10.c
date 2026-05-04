@@ -30,7 +30,7 @@ int main(void){
         scanf("%d/%d/%d", &month_2, &day_2, &year_2);
     }
 
-    printf("%02d/%02d/%02d is the earliest date\n", month_1, day_1, year_1);
+    printf("%.2d/%.2d/%.2d is the earliest date\n", month_1, day_1, year_1);
 
     return 0;
 }
