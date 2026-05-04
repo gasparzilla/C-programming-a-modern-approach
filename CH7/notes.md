@@ -110,13 +110,114 @@ by deafult, floating constants are stored as double precision. To force the comp
 
 ### Reading and writing floating point numbers.
 
+`double` types need the letter `l` in front of the convention specifications `%e`, `%f`, `%g`. This is only needed only during `scanf` since normal spacifications can be used in `printf` by `floats` or `double` types. C99 allows the use of the prefix `l` in `scanf`.
+
+`long double` types need the letter `L` in front of the convention specifications, both on `scanf` and `printf`.
+
 ## Character types
 
+`char` or character types vary from one computer to other _(outdated?)_.
 
+a variable of type `char` can be assigned any single character.
 
+```C
+char ch
 
+ch = 'a';
+ch = 'A';
+ch = '0';
+ch = ' ';
+```
 
+### Operations on characters
 
+Characters are small integers, for example, ASCII characters can be represented with integers from 0 to 127.
+
+When a character appears in a computation, `C` simply uses its integer value (for operations and comparisons).
+
+### Signed and unsigned characters
+
+signed and unsigned characters are a result of using `int` as the underlying type, hence the ability to sign or un-sing it.
+
+### Escape sequences
+
+**Character escapes:**
+
+| Name | Sequence |
+| --- | --- |
+| Alert | \a |
+| Backspace | \b |
+| Form feed | \f |
+| New Line | \n |
+| Carriage Return | \r|
+| Horizontal Tab | \t |
+| Vertical Tab | \v |
+| Backslash | \\ |
+| Question mark | \? |
+| Single quote | \' |
+| Double quote | \" |
+
+**Numeric escapes**
+
+This type of escapes allow for the use of characters outside of ASCII.
+
+- _octal escape sequence:_ consists of the `"\"` character followed by an octal number of at most three digits (maximum 377).
+- _hexadecimal escape sequence:_ consists of `"\x"` followed by a hexadecimal number.
+
+### Character handling functions
+
+- `toupper(char ch):` converts `ch` to UpperCase
+- more are described in CH23???
+
+### Reading and writing characters
+
+The `%c` conversion specification allows `scanf` and `printf` to read and write single characters. `scanf` doesn't skip whitespaces, unless told so with an intentional whitespaceeeeeeeeeee before the conversion specification:
+
+```C
+char ch;
+scanf(" %c", &ch);
+```
+
+### using `getchar` and `putchar`
+
+C provides other ways to read and write characters.
+
+`putchar(char ch)` writes a single character.
+
+`getchar(void)` reads a single characters and returns it. To store it you need to assign it to a variable:
+
+```C
+char ch;
+ch = getchar()
+```
+
+Here, a small comparison of using `scanf` vs `getchar` to search for a character:
+
+```C
+// using scanf
+do {
+    scanf("%c", &ch);
+} while (ch != '\n');
+
+// using getchar
+do {
+    ch = getchar();
+} while (ch != '\n');
+
+// moving getchar into the controlling expression
+while ((ch = getchar()) != '\n')
+    ;
+
+// without using the variable ch
+while (getchar() != '\n')
+    ;
+```
+
+### Program: Determining the length of a message
+
+```C
+#include <>
+```
 
 
 
