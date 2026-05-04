@@ -17,5 +17,5 @@ int main(void){
     balance = (balance-payment)+(balance*rate/1200.0f);
     printf("Balance remaining after third payment: %.2f\n", balance);
     
-    return 1;
+    return 0;
 }
