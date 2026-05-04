@@ -101,3 +101,22 @@ Floating point type variables mostly follow **IEEE 754** standard:
 C99 also has complex floating types: `float_Complex`, `double_Complex` and `long double_Complex`.
 
 ### Floating constants
+
+There are multiple ways to write floating constants; all must contain a decimal point and/or an exponent. The following examples are all valid:
+
+`57.0 57. 57.0e0 57E0 5.7e1 570E-1`
+
+by deafult, floating constants are stored as double precision. To force the compiler to store a floating constant as float or double float, one must suffix `f` or `l` respectively to the number. C99 allows for hexadecimal floating point numbers, starting with the prefix `0x`.
+
+### Reading and writing floating point numbers.
+
+## Character types
+
+
+
+
+
+
+
+
+
