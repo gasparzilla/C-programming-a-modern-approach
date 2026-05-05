@@ -216,8 +216,132 @@ while (getchar() != '\n')
 ### Program: Determining the length of a message
 
 ```C
-#include <>
+#include <stdio.h>
+
+int main(void){
+    char ch;
+    int len = 0;
+
+    printf("Enter a message: ");
+    ch = getchar();
+    while (ch != "\n"){
+        len++;
+        ch = getchar();
+    }
+    printf("Your message was %d character/s long.\n", len);
+}
 ```
 
+### Type conversion
 
+For a computer to cpmute an operation, both operands must be the same size and stored in the same way _(adding two 16b integers can be done directly, but not a 16b int and 32b float)_.
+
+`C` allows basic types to be mixed in expressions, automatically converting types to the adequate one in the context of the operation; for example:
+
+- adding a 16b `short` and a 32b `int` automatically converts the 16b value into a 32b value.
+- adding an `int` and a `float` prompts a conversion from `int` into `float` _(this is a bit more complicated since both types are stored in very different ways)_.
+
+Implicit conversions are done without the programmers input, these happen when:
+
+- operands in arithmetic or logical operators don't have the same type.
+- when the type of expression on the _right_ side of an assignment does not match the type of the variable on the _left_.
+- when the type of an argument in a function does not match the type of the parameter.
+- when the type of the expression in the return does not match the type of the function.
+
+### Usual arithmetic conversion
+
+These convertions are applied to the operands of most operators _(arithmetic, relational and equality operators)_. Promotion happens in two ways depending on the type of the operands involved:
+
+- **either operand is floating point**:
+  `float` -> `double` -> `long double`
+- **when neither operand is floating point type**:
+  `int` -> `unsigned int` -> `long int` -> `unsigned long int`
+
+### Conversion during assignment
+
+`C` follows a simple rule, the expression on the right side is converted to the type of the variable on the left; if the variable type is at least as wide as the expression, there won't be any problem.
+
+Assigning a value to a varibale that is narrower will meaning less or worse result.
+
+### Implicit conversions in C99
+
+### Casting
+
+`C` provides _casts_, a way to control type conversions:
+
+```C
+(type_name) expression
+```
+
+The following example shows how to extract the fractional part of a floating point variable using casts:
+
+```C
+float f, frac_part;
+
+frac_part = f - (int) f
+```
+
+Explicit type conversions via casting allows for documentation of conversion that would happen anyway. They also enable us to overrule the compiler and force specific conversions:
+
+```C
+float quotient;
+int dividend, divisor;
+
+// this operation stores the result of the division of two integers as a float
+quotient = dividend / divisor
+
+// if we want the conversion to happen BEFORE the division
+quotient = (float) dividend / divisor
+// equivalent to
+quotient = ((float) dividend) / divisor
+``` 
+
+Casting is an unary operator so it takes precedence over arithmetic operators.
+
+Casting also is usefull or necessary to avoid overflow:
+
+```C
+long i;
+int j = 10000;
+
+// this could overflow in some machines
+i = j * j
+
+// a solution
+i = (long) j * j
+```
+
+### Type definitions
+
+We can use the operator `typedef` to define new types based on preexisting types:
+
+```C
+typedef int Bool;
+
+Bool flag;
+```
+
+This method of defining types is useful to make the program more understandable.
+
+## The `sizeof` Operator
+
+This operator allows a prorgam to edtermine how much memory is required to store values of a particular type.
+
+```C
+sizeof (type_name);
+```
+
+It returns an unsigned integer representing the _number of bytes_ required to store a value belonging to the name type.
+
+Printing values of `sizeof` can be tricky since its type is implementation-defined; it's better to always convert to an `unsigned long` and then print using the `%lu` conversion.
+
+```C
+printf("Size of int: %lu\n", (unsigned long) sizeof(int));
+```
+
+C99 has the conversion specification `%zu` that allows the direct printing of type `size_t`
+
+```C
+printf("Size of int: %zu\n", sizeof(int));
+```
 
