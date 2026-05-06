@@ -35,9 +35,13 @@ int main(void){
           		putchar('9');
           		break;
           	}
+        if (ch < 'A'){
+            putchar(ch);
+        }
         ch = getchar();
         ch = toupper(ch);
 	}
 	
+    putchar('\n');
     return 0;
 }
