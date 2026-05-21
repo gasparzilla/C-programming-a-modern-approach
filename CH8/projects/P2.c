@@ -3,7 +3,6 @@
 
 int main(void){
     int digit_seen[10] = {0};
-    bool flag = false;
     int digit;
     long n;
 
@@ -13,9 +12,6 @@ int main(void){
     while (n > 0){
         digit = n%10;
         digit_seen[digit] += 1;
-        if (digit_seen[digit] > 1){
-            flag = true;
-        }
         n /= 10;
     }
     printf("Digit:      ");
