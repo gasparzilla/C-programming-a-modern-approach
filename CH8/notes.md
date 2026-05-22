@@ -153,3 +153,18 @@ int main(void){
     return 0
 }
 ```
+
+## Multidimensional arrays
+
+An array can have multiple dimensions
+
+- `int a[x][y]` two dimensional array
+- `int a[x][y][z]` three dimensional array
+- `int a[x][y][z][i]` four dimensional array
+- _you get the idea_
+
+You can visualize two dimensional arrays as tables and three dimensional arrays as cubes, but ther are stored linearly in memory.
+
+
+
+
