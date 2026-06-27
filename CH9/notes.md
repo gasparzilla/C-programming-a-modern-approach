@@ -59,3 +59,62 @@ void print_countdown(int n){
 ```
 
 ### Function definitions
+
+```C
+return_type function_name( parameters ){
+    declarations;
+    statements;
+}
+```
+
+The return type of funtions can be anything but arrays. `void` specifies the function will not return anything.
+
+After the function name come the parameters, each parameter must have its type specified.
+
+### Function calls
+
+Functions are **called** by stating their name with a list of arguments encsased in parentheses.
+
+functions that return non-void values are generally assigned to a variable, but they can be discarded ommiting the assignation portion of the statement. void functions are called without assigning their value to a variable.
+
+### Program: testing if a number is prime
+
+```C
+#include <stdbool.h>
+#include <stdio.h>
+
+bool is_prime(int n){
+    int divisor;
+
+    if (n <= 1){
+        return false;
+    }
+
+    for (divisor = 2; divisor * divisor <= n; divisor++){
+        if (n % divisor == 0){
+            return false
+        }
+    }
+
+    return true
+}
+
+int main(void){
+    int n;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    if (is_prime(n)){
+        printf("Number is prime.\n");
+    }
+    else{
+        printf("Number is not prime.\n");
+    }
+
+    return 0;
+}
+```
+
+### Function declarations
+
+declaration of programs are a way to help the compiler understandthe function before it is defined, when it is impossible to 
